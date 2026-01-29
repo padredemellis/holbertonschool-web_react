@@ -12,7 +12,7 @@ const teacher3: Teacher = {
   lastName: 'Doe',
   fullTimeEmployee: false,
   location: 'London',
-  contract: false, // Esta propiedad funciona gracias al [key: string]: any =)
+  contract: false,
 };
 
 console.log(teacher3);
@@ -30,3 +30,31 @@ const inicialApellido: printTeacher = (first, last) => {
 }
 
 inicialApellido(teacher3.firstName, teacher3.lastName);
+
+
+
+    interface StudentConstructor{
+        new (firstName: string, lastName: string): StudentClassInterface
+    }
+
+    interface StudentClassInterface {
+    workOnHomework(): string;
+    displayName(): string;
+}
+    class StudentClass implements StudentClassInterface {
+        firstName: string;
+        lastName: string;
+
+        constructor(firstName: string, lastName: string) {
+            this.firstName = firstName;
+            this.lastName = lastName;
+        }
+        
+        workOnHomework() {
+            return "Currently working";
+        }
+
+        displayName() {
+            return this.firstName;
+        }
+}
