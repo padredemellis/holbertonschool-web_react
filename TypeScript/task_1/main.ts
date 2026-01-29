@@ -20,3 +20,13 @@ console.log(teacher3);
 interface Directors extends Teacher{
     numberOfReports: number;
 }
+
+interface printTeacher{
+    (firstName: string, lastName: string):void 
+}
+
+const inicialApellido: printTeacher = (first, last) => {
+    console.log(`${first[0]}. ${last}`);
+}
+
+inicialApellido(teacher3.firstName, teacher3.lastName);
