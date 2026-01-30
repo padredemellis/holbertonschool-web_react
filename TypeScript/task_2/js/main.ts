@@ -22,10 +22,14 @@ class Teacher implements TeacherInterface{
     workTeacherTasks():string { return "Getting to work" }
 }
 
-function  createEmployee( salary:number | string ): Director | Teacher{
+function createEmployee( salary:number | string ): Director | Teacher{
     if ((typeof(salary) === 'number')  && salary < 500){
         return new Teacher;
     } else {
         return new Director;
     }
+}
+
+function isDirector(employee: Director | Teacher):employee is Director{
+    return employee instanceof Director;  
 }
